@@ -1,5 +1,11 @@
 # Water Treatment ICS Security Assessment
 
+![OT Security](https://img.shields.io/badge/Assessment-OT%2FICS%20Security-red)
+![IEC 62443](https://img.shields.io/badge/Framework-IEC%2062443-blue)
+![Modbus TCP](https://img.shields.io/badge/Protocol-Modbus%20TCP-orange)
+![SOCI Act](https://img.shields.io/badge/Legislation-SOCI%20Act%202018-green)
+![Python](https://img.shields.io/badge/Tools-Python%20%7C%20Wireshark%20%7C%20Docker-lightgrey)
+
 ## Reproducing the 2023 CyberAv3ngers Attack on Municipal Water Infrastructure
 
 **Author:** Deepak Varma  
