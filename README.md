@@ -29,32 +29,32 @@ commands to the PLC with zero credentials.
 
 ## Repository Structure
 
-| Folder | File | Description |
-|---|---|---|
-| `/` | `README.md` | Project overview and evidence summary |
-| `reports/` | `OT_ICS_Security_Assessment_Report_Final.pdf` | 23-page OT security assessment report |
-| `reports/` | `Incident_Response_Report_INC-2026-001.pdf` | 22-page incident response report |
-| `scripts/` | `modbus_read.py` | Unauthenticated Modbus read exploit |
-| `scripts/` | `modbus_write.py` | Unauthenticated Modbus write exploit |
-| `scripts/` | `modbus_proxy.py` | Modbus function code filter proxy |
-| `scripts/` | `water_booster_station.st` | OpenPLC PLC program |
-| `screenshots/` | `01_openplc_monitoring_live_values.png` | OpenPLC 4 live process variables |
-| `screenshots/` | `02_scadalts_watchlist_before_attack.png` | Scada-LTS live values before attack |
-| `screenshots/` | `03_wireshark_modbus_plaintext.png` | Unencrypted Modbus traffic capture |
-| `screenshots/` | `04_wireshark_modbus_coil_values.png` | Coil values visible in plaintext |
-| `screenshots/` | `05_modbus_read_unauthenticated.png` | Python read with zero credentials |
-| `screenshots/` | `06_attack_demonstration_full.png` | Side by side attack and SCADA impact |
-| `screenshots/` | `07_scadalts_after_attack.png` | SCADA dashboard showing all zeros |
-| `screenshots/` | `08_scadalts_attack_timeline_chart.png` | 30-minute attack timeline chart |
-| `screenshots/` | `09_iptables_firewall_rules.png` | Control 1 firewall rules evidence |
-| `screenshots/` | `10_iptables_with_logging.png` | Control 3 audit logging evidence |
-| `screenshots/` | `11_modbus_proxy_running.png` | Control 2 proxy startup |
-| `screenshots/` | `12_retest_read_blocked.png` | Read blocked after controls |
-| `screenshots/` | `13_retest_write_blocked.png` | Write blocked after controls |
-| `screenshots/` | `14_proxy_blocking_write_FC5.png` | Proxy blocking FC05 write command |
-| `screenshots/` | `15_scadalts_full_timeline_recovery.png` | Complete recovery timeline |
-| `diagrams/` | `lab_architecture_purdue.png` | Purdue model lab architecture |
-| `diagrams/` | `lab_architecture_purdue.drawio` | draw.io source file |
+|    Folder      |              File                             |         Description                   |
+|----------------|-----------------------------------------------|---------------------------------------|
+| `/`            | `README.md`                                   | Project overview and evidence summary |
+| `reports/`     | `OT_ICS_Security_Assessment_Report_Final.pdf` | 23-page OT security assessment report |
+| `reports/`     | `Incident_Response_Report_INC-2026-001.pdf`   | 22-page incident response report      |
+| `scripts/`     | `modbus_read.py`                              | Unauthenticated Modbus read exploit   |
+| `scripts/`     | `modbus_write.py`                             | Unauthenticated Modbus write exploit  |
+| `scripts/`     | `modbus_proxy.py`                             | Modbus function code filter proxy     |
+| `scripts/`     | `water_booster_station.st`                    | OpenPLC PLC program                   |
+| `screenshots/` | `01_openplc_monitoring_live_values.png`       | OpenPLC 4 live process variables      |
+| `screenshots/` | `02_scadalts_watchlist_before_attack.png`     | Scada-LTS live values before attack   |
+| `screenshots/` | `03_wireshark_modbus_plaintext.png`           | Unencrypted Modbus traffic capture    |
+| `screenshots/` | `04_wireshark_modbus_coil_values.png`         | Coil values visible in plaintext      |
+| `screenshots/` | `05_modbus_read_unauthenticated.png`          | Python read with zero credentials     |
+| `screenshots/` | `06_attack_demonstration_full.png`            | Side by side attack and SCADA impact  |
+| `screenshots/` | `07_scadalts_after_attack.png`                | SCADA dashboard showing all zeros     |
+| `screenshots/` | `08_scadalts_attack_timeline_chart.png`       | 30-minute attack timeline chart       |
+| `screenshots/` | `09_iptables_firewall_rules.png`              | Control 1 firewall rules evidence     |
+| `screenshots/` | `10_iptables_with_logging.png`                | Control 3 audit logging evidence      |
+| `screenshots/` | `11_modbus_proxy_running.png`                 | Control 2 proxy startup               |
+| `screenshots/` | `12_retest_read_blocked.png`                  | Read blocked after controls           |
+| `screenshots/` | `13_retest_write_blocked.png`                 | Write blocked after controls          |
+| `screenshots/` | `14_proxy_blocking_write_FC5.png`             | Proxy blocking FC05 write command     |
+| `screenshots/` | `15_scadalts_full_timeline_recovery.png`      | Complete recovery timeline            |
+| `diagrams/`    | `lab_architecture_purdue.png`                 | Purdue model lab architecture         |
+
 
 ---
 
