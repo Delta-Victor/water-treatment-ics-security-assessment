@@ -9,7 +9,7 @@
 ## Reproducing the 2023 CyberAv3ngers Attack on Municipal Water Infrastructure
 
 **Author:** Deepak Varma  
-**Background:** 9+ years operations and process safety at Reliance Industries (world's largest oil refinery) and Tata Steel  
+**Background:** 9 years 9 months operations, Security and process safety at Reliance Industries (world's largest oil refinery) and Tata Steel  
 **Assessment Type:** OT Vulnerability Assessment, Penetration Test, and Remediation Verification  
 **Target Sector:** Water and Wastewater - Australian Critical Infrastructure (SOCI Act 2018)  
 **Frameworks:** IEC 62443 | MITRE ATT&CK for ICS | Purdue Reference Model | NIST SP 800-82  
@@ -18,12 +18,9 @@
 
 ## Executive Summary
 
-In November 2023, Iranian Government-affiliated threat group CyberAv3ngers compromised Unitronics PLCs at the Municipal Water Authority of Aliquippa, 
-Pennsylvania by exploiting unauthenticated Modbus TCP access. This project reproduces that attack in a controlled lab environment, demonstrates the 
-complete attack chain with technical evidence, implements three IEC 62443 compensating controls, and verifies their effectiveness.
+In November 2023, Iranian Government-affiliated threat group CyberAv3ngers compromised Unitronics PLCs at the Municipal Water Authority of Aliquippa, Pennsylvania by exploiting unauthenticated Modbus TCP access. This project reproduces that attack in a controlled lab environment, demonstrates the complete attack chain with technical evidence, implements three IEC 62443 compensating controls, and verifies their effectiveness.
 
-**Key Finding:** Modbus TCP has no built-in authentication. Any device that can reach port 502 can read all process values and send arbitrary write 
-commands to the PLC with zero credentials.
+**Key Finding:** Modbus TCP has no built-in authentication. Any device that can reach port 502 can read all process values and send arbitrary write commands to the PLC with zero credentials.
 
 ---
 
@@ -79,8 +76,7 @@ Python script read all 4 process variables with zero credentials.
 **Finding 2 - Unauthenticated Write Access**  
 Severity: Critical | CVSS: 10.0
 
-Python script stopped the booster pump and disabled chlorination using Modbus FC05 write commands. No authentication required. Impact immediately 
-visible in Scada-LTS SCADA dashboard.
+Python script stopped the booster pump and disabled chlorination using Modbus FC05 write commands. No authentication required. Impact immediately visible in Scada-LTS SCADA dashboard.
 
 ![Attack Demonstration](screenshots/06_attack_demonstration_full.png)
 
@@ -141,7 +137,7 @@ OpenPLC Runtime v3 | Scada-LTS v2.8.0 | Wireshark 4.6.7 | Python 3.12 | pymodbus
 - NIST SP 800-82 - Guide to ICS Security
 - Australian SOCI Act 2018 - Security of Critical Infrastructure
 
-## Real-World Relevance — OSINT Validation
+## Real-World Relevance - OSINT Validation
 
 To validate that the vulnerabilities demonstrated in this lab exist at scale in production environments, I conducted passive OSINT research using Shodan.
 
@@ -153,10 +149,10 @@ To validate that the vulnerabilities demonstrated in this lab exist at scale in 
 - All confirmed OT devices responded to unauthenticated Modbus queries — consistent with the vulnerability demonstrated in this lab
 
 ### Key Finding
-Schneider Electric ATV630 Variable Speed Drives (22kW motor controllers) were identified internet-exposed in an agricultural water infrastructure region of Victoria. These devices control physical pump motors. Unauthenticated Modbus write access to a VSD allows remote motor speed manipulation - stopping, overspeeding, or rapidly cycling pumps — with potential for water supply disruption and mechanical damage.
+Schneider Electric ATV630 Variable Speed Drives (22kW motor controllers) were identified internet-exposed in an agricultural water infrastructure region of Victoria. These devices control physical pump motors. Unauthenticated Modbus write access to a VSD allows remote motor speed manipulation - stopping, overspeeding, or rapidly cycling pumps with potential for water supply disruption and mechanical damage.
 
 ### What This Means
-The three compensating controls implemented in this lab — IP allowlist firewall (IEC 62443 SR 5.1), Modbus function code filter (SR 3.5), and audit logging (SR 6.1) — directly address this real-world exposure. Had these controls been in place, none of these devices would be reachable from the internet and none would appear in Shodan results.
+The three compensating controls implemented in this lab: IP allowlist firewall (IEC 62443 SR 5.1), Modbus function code filter (SR 3.5), and audit logging (SR 6.1) directly address this real-world exposure. Had these controls been in place, none of these devices would be reachable from the internet and none would appear in Shodan results.
 
 ### Methodology Note
 All research was conducted passively using Shodan's existing scan data. No devices were connected to, probed, or interacted with in any way. Specific IP addresses and operator identities are not published in accordance with responsible disclosure principles.
