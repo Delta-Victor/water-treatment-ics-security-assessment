@@ -141,3 +141,22 @@ OpenPLC Runtime v3 | Scada-LTS v2.8.0 | Wireshark 4.6.7 | Python 3.12 | pymodbus
 - NIST SP 800-82 - Guide to ICS Security
 - Australian SOCI Act 2018 - Security of Critical Infrastructure
 
+## Real-World Relevance — OSINT Validation
+
+To validate that the vulnerabilities demonstrated in this lab exist at scale in production environments, I conducted passive OSINT research using Shodan.
+
+### Australian Exposure (port:502 country:AU)
+- 3,310 devices in Australia respond on Modbus TCP port 502
+- After filtering noise (honeypots, web servers, cloud instances), approximately 53 are confirmed Schneider Electric PLCs and industrial controllers directly internet-exposed
+- Real OT devices identified include Modicon M221, M241, M340 series PLCs and ATV630 Variable Speed Drives
+- Devices were geolocated across industrial and agricultural regions including rural Victoria's water management corridor
+- All confirmed OT devices responded to unauthenticated Modbus queries — consistent with the vulnerability demonstrated in this lab
+
+### Key Finding
+Schneider Electric ATV630 Variable Speed Drives (22kW motor controllers) were identified internet-exposed in an agricultural water infrastructure region of Victoria. These devices control physical pump motors. Unauthenticated Modbus write access to a VSD allows remote motor speed manipulation - stopping, overspeeding, or rapidly cycling pumps — with potential for water supply disruption and mechanical damage.
+
+### What This Means
+The three compensating controls implemented in this lab — IP allowlist firewall (IEC 62443 SR 5.1), Modbus function code filter (SR 3.5), and audit logging (SR 6.1) — directly address this real-world exposure. Had these controls been in place, none of these devices would be reachable from the internet and none would appear in Shodan results.
+
+### Methodology Note
+All research was conducted passively using Shodan's existing scan data. No devices were connected to, probed, or interacted with in any way. Specific IP addresses and operator identities are not published in accordance with responsible disclosure principles.
